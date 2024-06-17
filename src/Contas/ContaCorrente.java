@@ -7,7 +7,6 @@ public class ContaCorrente extends Conta{
     public ContaCorrente(int numero, Cliente dono, double saldo, double limiteMin, double limiteMax){
         super(numero, dono, saldo, limiteMin, limiteMax);
         setLimite();
-        taxas.add(calculaTaxas());
     }
 
     @Override //Conta()

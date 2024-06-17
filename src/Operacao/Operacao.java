@@ -22,11 +22,6 @@ public abstract class Operacao implements ITaxas{
         return String.format("%s\t%s\t%s", this.data,  this.tipo,  this.valor);
     }
 
-    @Override //ITaxas
-    public double calculaTaxas() {
-        return tipo=='s'? 0.05:0;
-    }
-
     //Encapsulation
     public Date getData() {return data;}
     public char getTipo() {return tipo;}

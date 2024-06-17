@@ -11,7 +11,6 @@ public abstract class Conta implements ITaxas{ //implements para Interfaces
     protected Cliente dono;
     protected double saldo;
     protected double limiteMax, limiteMin;
-    protected List<Double> taxas = new ArrayList<>();
     protected Operacao[] operacoes;
     protected int proximaOperacao;
     protected static int totalContas = 0;
@@ -38,7 +37,6 @@ public abstract class Conta implements ITaxas{ //implements para Interfaces
         if (valor >= limiteMin && valor <= limiteMax) {
             saldo -= valor;
             operacoes[proximaOperacao] = new OperacaoSaque(valor);
-            taxas.add(operacoes[proximaOperacao].calculaTaxas());
             proximaOperacao++;
             redimensionarOperacoes();
             return true;
@@ -73,26 +71,10 @@ public abstract class Conta implements ITaxas{ //implements para Interfaces
     }
 
     public void imprimirExtratoTaxas(){
-        double f=0, total=0;
-        taxas.sort(Comparator.reverseOrder());
-        System.out.println("\n======= Extrato de Taxas Conta " + numero + "======");
-        for(double atual : taxas) {
-            total+=atual;
-            if (atual<10){
-                if (f<0){
-                    f=1;
-                    System.out.println("\nOperacoes");
-                }
-                System.out.println("Saque: " + atual);
-            }else if (atual>0.05){
-                if (f==0){
-                    f=-1;
-                    System.out.print("Manutencao da Conta: ");
-                }
-                System.out.println(atual);
-            }          
-        }
-        System.out.printf("\nTotal:"+ total +"\n====================");
+        System.out.println("\nManutenção da conta: " + this.calculaTaxas());
+        for (Operacao o : operacoes)if (o != null){
+            if (o.getTipo() == 's') System.out.println("Saque: " + o.calculaTaxas());
+        } 
     }
 
     @Override //Object()
