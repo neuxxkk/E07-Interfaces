@@ -12,16 +12,18 @@ public class Main {
         ClientePessoaJuridica anaC = new ClientePessoaJuridica("AnaC", "Av. Fleming, 895", "555669813", 78, "Publishing");
 
         Conta conta1 = new ContaUniversitaria(1021, vitor, 565, -500, 3500);
-        Conta conta2 = new ContaCorrente(1234, anaC, 0, -300, 1500);
+        Conta conta2 = new ContaCorrente(1234, ana, 1000, -300, 1500); //
+        conta1.setDono(anaC);
 
         System.out.println(conta2);
 
         conta1.depositar(3000);
-        conta1.sacar(500);
+        conta1.sacar(500); //
 
-        conta2.transferir(conta1, 666);
+        conta2.transferir(conta1, 666); //
         conta2.depositar(234);
-        conta2.sacar(350);
+        conta2.sacar(350); //
+        conta2.sacar(25);
 
         System.out.println(conta2);
         conta2.imprimirExtratoConta();

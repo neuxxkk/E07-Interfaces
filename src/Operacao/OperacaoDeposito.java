@@ -8,7 +8,7 @@ public class OperacaoDeposito extends Operacao{
 
     @Override //ITaxas
     public double calculaTaxas() {
-        return 0.05;
+        return 0;
     }
 
 }

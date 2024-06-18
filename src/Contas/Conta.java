@@ -20,7 +20,7 @@ public abstract class Conta implements ITaxas{ //implements para Interfaces
         this.limiteMax = limiteMax;
         this.numero = numero;
         this.dono = dono;
-        this.saldo = saldo;
+        this.saldo = saldo - this.calculaTaxas();
         this.operacoes = new Operacao[10];
         this.proximaOperacao = 0;
         Conta.totalContas++;
@@ -35,8 +35,8 @@ public abstract class Conta implements ITaxas{ //implements para Interfaces
     
     public boolean sacar(double valor) {
         if (valor >= limiteMin && valor <= limiteMax) {
-            saldo -= valor;
             operacoes[proximaOperacao] = new OperacaoSaque(valor);
+            saldo -= valor + operacoes[proximaOperacao].calculaTaxas();
             proximaOperacao++;
             redimensionarOperacoes();
             return true;
@@ -71,10 +71,13 @@ public abstract class Conta implements ITaxas{ //implements para Interfaces
     }
 
     public void imprimirExtratoTaxas(){
+        double total=this.calculaTaxas();
         System.out.println("\nManutenção da conta: " + this.calculaTaxas());
         for (Operacao o : operacoes)if (o != null){
-            if (o.getTipo() == 's') System.out.println("Saque: " + o.calculaTaxas());
+            total+=o.calculaTaxas();
+            if (o.getTipo() == 's')System.out.println("Saque: " + o.calculaTaxas());
         } 
+        System.out.println("\nTotal: " + (float)total);
     }
 
     @Override //Object()
@@ -82,7 +85,7 @@ public abstract class Conta implements ITaxas{ //implements para Interfaces
         return
         "\n===== Conta " + numero + " ====="+
         "\nDono: " + dono.getNome()+
-        "\nSaldo: " + saldo+
+        "\nSaldo: " + (float)saldo +
         "\nLimite Max: " + limiteMax+
         "\nLimite Min: " + limiteMin+
         "\n====================";
