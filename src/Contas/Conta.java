@@ -15,7 +15,7 @@ public abstract class Conta implements ITaxas{ //implements para Interfaces
     protected int proximaOperacao;
     protected static int totalContas = 0;
 
-    public Conta(int numero, Cliente dono, double saldo, double limiteMin, double limiteMax) {
+    Conta(int numero, Cliente dono, double saldo, double limiteMin, double limiteMax) {
         this.limiteMin = limiteMin;
         this.limiteMax = limiteMax;
         this.numero = numero;
