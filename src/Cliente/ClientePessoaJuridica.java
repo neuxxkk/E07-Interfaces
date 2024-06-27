@@ -29,7 +29,7 @@ public class ClientePessoaJuridica extends Cliente {
 
     @Override //Object()
     public boolean equals(Object obj) {
-        return cnpj.equals(((ClientePessoaJuridica) obj).cnpj) ; //converte Object obj to ClientePessoaJuridica obj
+        return cnpj.equals(((ClientePessoaJuridica) obj).cnpj);
     }
 
     @Override //Cliente()

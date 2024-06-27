@@ -2,9 +2,9 @@ package Cliente;
 
 import java.util.*;
 
-public abstract class Cliente { //Abstract: Não se pode criar objects
+public abstract class Cliente {
 
-    protected String nome; //Protected: class and subclass
+    protected String nome;
     protected String endereco;
     protected Date data;
 

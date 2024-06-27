@@ -16,7 +16,7 @@ public class ContaCorrente extends Conta{
 
     @Override //ITaxas()
     public double calculaTaxas(){
-        return this.dono.getClass() == ClientePessoaFisica.class ? 10:20;
+        return dono instanceof ClientePessoaFisica ? 10:20;
     }
     
 }

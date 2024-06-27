@@ -1,11 +1,11 @@
 package Contas;
 
+import java.util.*;
 import Operacao.*;
 import Cliente.*;
 import ITaxas.*;
-import java.util.*;
 
-public abstract class Conta implements ITaxas{ //implements para Interfaces
+public abstract class Conta implements ITaxas{
 
     protected int numero;
     protected Cliente dono;
@@ -15,7 +15,7 @@ public abstract class Conta implements ITaxas{ //implements para Interfaces
     protected int proximaOperacao;
     protected static int totalContas = 0;
 
-    public Conta(int numero, Cliente dono, double saldo, double limiteMin, double limiteMax) {
+    Conta(int numero, Cliente dono, double saldo, double limiteMin, double limiteMax) {
         this.limiteMin = limiteMin;
         this.limiteMax = limiteMax;
         this.numero = numero;
@@ -32,7 +32,6 @@ public abstract class Conta implements ITaxas{ //implements para Interfaces
         }
     }
 
-    
     public boolean sacar(double valor) {
         if (valor >= limiteMin && valor <= limiteMax) {
             operacoes[proximaOperacao] = new OperacaoSaque(valor);
@@ -95,7 +94,6 @@ public abstract class Conta implements ITaxas{ //implements para Interfaces
     public boolean equals(Object conta) {
         return this.numero==((Conta) conta).numero; //converte Object conta to Conta conta
     }
-
 
     //Encapsulation
     public int getNumero() {return numero;}

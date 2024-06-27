@@ -10,7 +10,7 @@ public abstract class Operacao implements ITaxas{
     protected double valor;
     private static int totalOperacoes = 0;
 
-    public Operacao(char tipo, double valor) {
+    Operacao(char tipo, double valor) {
         this.tipo = tipo;
         this.valor = valor;
         data = new Date();
