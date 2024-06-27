@@ -6,13 +6,14 @@ public class ContaUniversitaria extends Conta{
 
     public ContaUniversitaria(int numero, Cliente dono, double saldo, double limiteMin, double limiteMax){
         super(numero, dono, saldo, limiteMin, limiteMax);
-        setLimite();
     }
 
     @Override //Conta()
-    void setLimite() {
+    void setLimite(double limiteMin, double limiteMax) {
         if (limiteMin < 0) limiteMin = 0;
         if (limiteMax > 500) limiteMax = 500;
+        this.limiteMin = limiteMin;
+        this.limiteMax = limiteMax;
     }
 
     @Override //ITaxas()

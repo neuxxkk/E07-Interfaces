@@ -18,13 +18,13 @@ public class ClientePessoaJuridica extends Cliente {
     @Override //Object()
     public String toString(){
         return 
-        "\n===== Cliente PJ ====="+
+        "\n========= Cliente PJ ========="+
         "\nNome: " + this.nome+
         "\nSetor: " + this.setor+
         "\nNumero de funcionários: " + this.numFuncionarios+
         "\nEndereco: " + this.endereco+
         "\nCNPJ: " + this.cnpj+
-        "\n====================";
+        "\n==============================";
     }
 
     @Override //Object()

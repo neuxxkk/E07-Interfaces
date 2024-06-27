@@ -18,13 +18,13 @@ public class ClientePessoaFisica extends Cliente {
     @Override //Object()
     public String toString(){
         return
-        "\n===== Cliente PF ====="+
+        "\n========= Cliente PF ======"+
         "\nNome: " + this.nome + 
         "\nIdade: " + this.idade +
         "\nSexo: " + this.sexo +
         "\nEndereco: " + this.endereco +
         "\nCPF: " + this.cpf +
-        "\n====================";
+        "\n============================";
     }
 
     @Override //Object()
